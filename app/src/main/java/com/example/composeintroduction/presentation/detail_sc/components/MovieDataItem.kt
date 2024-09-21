@@ -1,0 +1,49 @@
+package com.example.composeintroduction.presentation.detail_sc.components
+
+import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.padding
+import androidx.compose.material3.Text
+import androidx.compose.runtime.Composable
+import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.text.SpanStyle
+import androidx.compose.ui.text.buildAnnotatedString
+import androidx.compose.ui.text.font.FontFamily
+import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.text.withStyle
+import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
+
+@Composable
+fun MovieDataItem(
+    modifier: Modifier = Modifier,
+    title: String,
+    description: String
+) {
+    Text(
+       buildAnnotatedString {
+           withStyle(
+               style = SpanStyle(
+                     fontSize = 18.sp,
+                   fontFamily = FontFamily.Monospace,
+                   color = Color(0xff3559E0),
+                   fontWeight = FontWeight.SemiBold
+               )
+           ){
+               append("$title: ")
+           }
+
+           withStyle(
+               style = SpanStyle(
+                   fontSize = 20.sp
+               )
+           ){
+               append("$description")
+           }
+       },
+        modifier = modifier
+            .fillMaxWidth()
+            .padding(horizontal = 6.dp, vertical = 2.dp)
+    )
+    
+}
